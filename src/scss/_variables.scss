@@ -1,4 +1,11 @@
-$primary-color: #282c34;
-$secondary-color: #ff652f;
-$tertiary-color: red;
-$text-color: #fff;
+$colors: (
+    "primary": #35bacc,
+    "primary-hover": #1b8c9b,
+    "secondary": #ffabb6,
+    "secondary-hover": #ac626c,
+    "tertiary": #a28089,
+    "tertiary-hover": #815e67,
+    "outline-hover": #cccccc,
+    "disabled": #a2a2a2,
+    "text": #fff,
+)

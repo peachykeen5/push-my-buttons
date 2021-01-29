@@ -1,19 +1,39 @@
 @import "./scss/variables";
 
-// @function color($importance) {
-//   @return map-get($colors, $importance);
-// }
-@mixin buttonStyle($backgroundColor) {
+@function getColor($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@mixin buttonStyle($mainColor, $accentColor) {
   display: flex;
   padding: 10px;
   border-radius: 5px;
-  color: $text-color;
+  color: getColor(text);
   margin: 5px;
-  background-color: $backgroundColor;
+  border: none;
+  outline: 0;
+  background-color: $mainColor;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 1px 1px 5px rgb(73, 73, 73);
+  transition: ease-in-out 250ms;
+  &:hover {
+    background-color: $accentColor;
+  }
+  &:disabled {
+    background-color: getColor(disabled);
+  }
 }
 
+// @mixin theme($light-theme: true) {
+//   @if $light-theme {
+//     background-color: lighten($primary-color, 100%);
+//     color: darken($text-color, 100%);
+//   }
+// }
+
 .App {
-  background-color: #282c34;
+  background-color: #6b6b6b;
   min-height: 100vh;
   text-align: center;
 }
@@ -30,7 +50,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #6b6b6b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,9 +64,9 @@
 }
 
 .main {
-  background-color: #282c34;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 80%;
@@ -67,25 +87,54 @@
 }
 
 .Button {
-  @include buttonStyle($primary-color);
-  background-color: #282c34;
+  @include buttonStyle(getColor(primary), getColor(primary-hover));
 
   &__primary {
-    @include buttonStyle($primary-color);
-    &:hover {
-      background-color: $secondary-color;
+    @include buttonStyle(getColor(primary), getColor(primary-hover));
+    &__text {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      color: getColor(primary);
+      box-shadow: none;
+    }
+
+    &__outline {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      background-color: transparent;
+      border: 2px solid getColor(primary);
+      color: getColor(primary);
     }
   }
   &__secondary {
-    @include buttonStyle($secondary-color);
-    &:hover {
-      background-color: $tertiary-color;
+    @include buttonStyle(getColor(secondary), getColor(secondary-hover));
+    &__text {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      color: getColor(secondary);
+      box-shadow: none;
+    }
+    &__outline {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      background-color: transparent;
+      border: 2px solid getColor(secondary);
+      color: getColor(secondary);
     }
   }
   &__tertiary {
-    @include buttonStyle($tertiary-color);
-    &:hover {
-      background-color: $primary-color;
+    @include buttonStyle(getColor(tertiary), getColor(tertiary-hover));
+    &__text {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      color: getColor(tertiary);
+      box-shadow: none;
     }
+    &__outline {
+      @include buttonStyle(transparent, getColor(outline-hover));
+      background-color: transparent;
+      border: 2px solid getColor(tertiary);
+      color: getColor(tertiary);
+    }
+
   }
 }
+
+// .light {
+//   @include theme(true);
+// }
