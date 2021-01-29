@@ -133,6 +133,14 @@
     }
 
   }
+  &__invisible {
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+  }
 }
 
 // .light {
