@@ -61,34 +61,34 @@ function App() {
         <row className="row">
           <Button
             importance="primary"
-            label="primary solid"
+            label="solid 1"
             handleClick={() => handleClick(ImportanceEnums.PrimarySolid)}
           />
           <Button
             importance="secondary"
-            label="secondary solid"
+            label="solid 2"
             handleClick={() => handleClick(ImportanceEnums.SecondarySolid)}
           />
           <Button
             importance="tertiary"
-            label="tertiary solid"
+            label="solid 3"
             handleClick={() => handleClick(ImportanceEnums.TertiarySolid)}
           />
         </row>
         <row className="row">
           <Button
             importance="primary__outline"
-            label="primary outline"
+            label="outline 1"
             handleClick={() => handleClick(ImportanceEnums.PrimaryOutline)}
           />
           <Button
             importance="secondary__outline"
-            label="secondary outline"
+            label="outline 2"
             handleClick={() => handleClick(ImportanceEnums.SecondaryOutline)}
           />
           <Button
             importance="tertiary__outline"
-            label="tertiary outline"
+            label="outline 3"
             handleClick={() => handleClick(ImportanceEnums.TertiaryOutline)}
           />
         </row>
