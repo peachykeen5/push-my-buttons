@@ -16,8 +16,9 @@
   cursor: pointer;
   font-weight: 700;
   box-shadow: 1px 1px 5px rgb(73, 73, 73);
-  transition: ease-in-out 250ms;
   &:hover {
+    transition: ease-in-out 250ms;
+    transform: translateY(2px);
     background-color: $accentColor;
   }
   &:disabled {
